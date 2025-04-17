@@ -15,10 +15,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 db.run('CREATE TABLE IF NOT EXISTS logs (id INTEGER PRIMARY KEY, name TEXT, classroom TEXT, timein TEXT, timeout TEXT)');
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'outlook',
   auth: {
-    user: 'your-email@gmail.com',
-    pass: 'your-app-password'
+    user: 'jrios6@saisd.net',
+    pass: 'Ah+dan)Wuey+M9$'
   }
 });
 
@@ -37,7 +37,7 @@ app.post('/signout', (req, res) => {
 app.post('/alert', (req, res) => {
   const { name, room } = req.body;
   const mailOptions = {
-    from: 'your-email@gmail.com',
+    from: 'Bathroom pass Log',
     to: 'jrios6@saisd.net',
     subject: `Time Alert: ${name}`,
     text: `${name} has exceeded the allowed time in ${room}.`
